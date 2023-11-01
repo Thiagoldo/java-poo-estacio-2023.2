@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginViewController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DO PROGRAMA">
+         <font>
+            <Font size="27.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+         </VBox.margin>
+      </Text>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário" />
+      <TextField fx:id="txtUsuario" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="237.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Senha">
+         <VBox.margin>
+            <Insets top="30.0" />
+         </VBox.margin>
+      </Text>
+      <PasswordField fx:id="txtSenha" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="237.0" />
+      <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#onBtnLoginAction" text="Entrar">
+         <VBox.margin>
+            <Insets bottom="30.0" top="30.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.moviments.BySectorViewController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Movimentar Bens Ativos por Setor">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Separator />
+      <SplitPane dividerPositions="0.4">
+         <items>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <GridPane alignment="CENTER_LEFT" vgap="5.0" VBox.vgrow="ALWAYS">
+                     <columnConstraints>
+                        <ColumnConstraints fillWidth="false" hgrow="ALWAYS" maxWidth="58.0" minWidth="34.0" prefWidth="34.0" />
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="163.0" />
+                        <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints minHeight="10.0" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Data Início" GridPane.rowIndex="4" />
+                        <Label text="Setor" />
+                        <Label text="Bens disponíveis" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <TableView fx:id="tbvAtivosDisponiveis" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="340.0" prefWidth="379.0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                          <columns>
+                              <TableColumn fx:id="idFromColumn" prefWidth="28.0" text="ID" />
+                            <TableColumn fx:id="descricaoFromColumn" maxWidth="1.7976931348623157E308" prefWidth="240.0" text="Descrição" />
+                            <TableColumn fx:id="categoriaFromColumn" prefWidth="110.0" text="Categoria" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btnAdicionar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnAdicionarAction" text="Adicionar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+                        <Text fx:id="txtSetor" strokeType="OUTSIDE" strokeWidth="0.0" text=" " GridPane.columnIndex="1" GridPane.columnSpan="2">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="dtInicio" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Bens no Setor" />
+                  <TableView fx:id="tbvAtivosNoSetor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="589.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="idToColumn" maxWidth="-1.0" minWidth="30.0" prefWidth="-1.0" text="ID" />
+                      <TableColumn fx:id="descricaoToColumn" maxWidth="263.0" minWidth="175.0" prefWidth="208.0" text="Descrição" />
+                        <TableColumn fx:id="categoriaToColumn" prefWidth="172.0" text="Categoria" />
+                        <TableColumn fx:id="dataInicioToColumn" prefWidth="115.0" text="Data Início" />
+                    </columns>
+                  </TableView>
+                  <FlowPane alignment="TOP_RIGHT" columnHalignment="RIGHT">
+                     <children>
+                        <Label contentDisplay="RIGHT" text="Total: R$ " />
+                        <Text fx:id="txtValorTotal" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </FlowPane>
+                  <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT">
+                     <children>
+                        <Label text="Observação">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="txtObservacao" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="5.0" right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Data de Fim" />
+                        <DatePicker fx:id="dtFim">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <Button fx:id="btnRetirar" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#onBtnRetirarAction" text="Retirar">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin></Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </VBox>
+         </items>
+      </SplitPane>
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+        <items>
+          <Button fx:id="btnSair" mnemonicParsing="false" onAction="#onBtnSairAction" text="Sair" />
+            <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onBtnSalvarAction" text="Salvar alterações" />
+        </items>
+      </ToolBar>
+   </children>
+</VBox>

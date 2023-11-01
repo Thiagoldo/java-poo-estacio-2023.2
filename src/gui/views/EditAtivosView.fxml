@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.assets.EditAtivosViewController">
+   <children>
+      <AnchorPane prefHeight="362.0" prefWidth="228.0">
+         <children>
+            <TextField fx:id="txtDescricao" layoutY="18.0" prefHeight="25.0" prefWidth="228.0" />
+            <Text layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição" />
+            <TextField fx:id="txtDataCadastro" editable="false" layoutX="246.0" layoutY="17.0" prefHeight="25.0" prefWidth="143.0" />
+            <Text layoutX="246.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Cadastro" />
+            <Text layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categoria" />
+            <TextField fx:id="txtNotaFiscal" layoutY="115.0" prefHeight="25.0" prefWidth="228.0" />
+            <Text layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nota Fiscal" />
+            <TextField fx:id="txtNumeroSerie" layoutY="163.0" prefHeight="25.0" prefWidth="228.0" />
+            <Text layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numero de Série" />
+            <TextField fx:id="txtModelo" layoutY="211.0" prefHeight="25.0" prefWidth="228.0" />
+            <Text layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo" />
+            <TextField fx:id="txtValor" layoutY="258.0" prefHeight="25.0" prefWidth="228.0" />
+            <Text layoutX="1.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor" />
+            <TextArea fx:id="txtObservacao" layoutY="305.0" prefHeight="52.0" prefWidth="389.0" />
+            <Text layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observação" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c9c9" height="143.0" layoutX="248.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="143.0" />
+            <Text layoutX="246.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagem" />
+            <Button fx:id="btnAdicionarImagem" layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBtnAdicionarImagemAction" text="Adicionar" />
+            <ImageView fx:id="imgAtivo" fitHeight="143.0" fitWidth="143.0" layoutX="248.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
+            <ComboBox fx:id="cBoxCategorias" layoutY="66.0" prefHeight="25.0" prefWidth="228.0" />
+            <Text layoutX="246.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
+            <ComboBox fx:id="cBoxStatus" layoutX="246.0" layoutY="66.0" prefHeight="25.0" prefWidth="143.0" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </AnchorPane>
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT">
+         <items>
+            <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#onBtnSalvarAction" text="Salvar" />
+            <Button fx:id="btnSair" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#onBtnSairAction" text="Cancelar" />
+         </items>
+      </ToolBar>
+   </children>
+</VBox>

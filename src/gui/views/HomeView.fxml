@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeViewController">
+   <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Consultar">
+               <items>
+                  <MenuItem fx:id="menuItemBens" mnemonicParsing="false" onAction="#onMenuItemBensAction" text="Bens" />
+                  <MenuItem fx:id="menuItemUsuarios" mnemonicParsing="false" onAction="#onMenuItemUsuariosAction" text="Usuários" />
+                  <MenuItem fx:id="menuItemCategorias" mnemonicParsing="false" onAction="#onMenuItemCategoriasAction" text="Categorias" />
+                  <MenuItem fx:id="menuItemSetores" mnemonicParsing="false" onAction="#onMenuItemSetoresAction" text="Setores" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Movimentar">
+               <items>
+                  <MenuItem fx:id="menuItemMovimentBySector" mnemonicParsing="false" onAction="#onMenuItemMovimentBySector" text="Bens por Setor" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Relatórios">
+               <items>
+                  <MenuItem fx:id="menuItemReportAssetsActiveds" mnemonicParsing="false" onAction="#onMenuItemReportAssetsActiveds" text="Bens Ativos" />
+                  <MenuItem mnemonicParsing="false" text="Bens por Categoria" />
+                  <MenuItem mnemonicParsing="false" text="Bens por Setor" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Label alignment="CENTER" contentDisplay="CENTER" text="NOME DO PROGRAMA">
+         <font>
+            <Font name="Sans Serif Collection" size="18.0" />
+         </font>
+      </Label>
+      <Separator />
+      <HBox alignment="CENTER" fillHeight="false" spacing="50.0">
+         <children>
+            <StackPane>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="140.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="x Bens Ativos" />
+               </children>
+            </StackPane>
+            <StackPane>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="140.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimo Bem Cadastrado" />
+               </children>
+            </StackPane>
+            <StackPane>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="140.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total dos Bens" />
+               </children>
+            </StackPane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="100.0" top="80.0" />
+         </VBox.margin>
+      </HBox>
+      <Text fx:id="textUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" />
+   </children>
+</VBox>
