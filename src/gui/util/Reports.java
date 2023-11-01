@@ -3,14 +3,14 @@ package gui.util;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import db.DB;
+import javafx.scene.control.Alert.AlertType;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
-
-import db.DB;
 
 public class Reports {
     public static void openReport(String path){
