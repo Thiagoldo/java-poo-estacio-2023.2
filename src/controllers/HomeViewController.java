@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import application.App;
+import controllers.moviments.ChoseSectorViewController;
 import db.DB;
 import gui.util.Reports;
 import javafx.fxml.FXML;
@@ -31,6 +32,8 @@ public class HomeViewController implements Initializable {
     private MenuItem menuItemReportAssetsActiveds;
     @FXML
     private MenuItem menuItemReportAssetsByCategories;
+    @FXML
+    private MenuItem MenuItemReportAssetsBySector;
     @FXML
     private Text textUser;
     @FXML
@@ -64,6 +67,7 @@ public class HomeViewController implements Initializable {
 
     @FXML
     public void onMenuItemMovimentBySector() {
+        ChoseSectorViewController.option = 1;
         MainViewController.loadView(new FXMLLoader(getClass().getResource("../gui/views/ChoseSectorView.fxml")));
     }
 
@@ -71,9 +75,16 @@ public class HomeViewController implements Initializable {
     public void onMenuItemReportAssetsActivedsAction() {
         Reports.openReport("src\\gui\\reports\\Report_Bens_Ativos.jrxml");
     }
+
     @FXML
     public void onMenuItemReportAssetsByCategoriesAction() {
         Reports.openReport("src\\gui\\reports\\Report_Bens_Por_Categoria.jrxml");
+    }
+
+    @FXML
+    public void onMenuItemReportAssetsBySectorAction() {
+        ChoseSectorViewController.option = 2;
+        MainViewController.loadView(new FXMLLoader(getClass().getResource("../gui/views/ChoseSectorView.fxml")));
     }
 
     @Override
@@ -81,14 +92,14 @@ public class HomeViewController implements Initializable {
         textUser.setText(App.getAUTHENTICATED_USER().getNome());
         txtProgramName.setText(App.getApplicationName());
 
-        //? ViewBensAtivos
+        // ? ViewBensAtivos
         Integer bensAtivos = DB.homeQueryBensAtivos();
         txtQuantidadeBensAtivos.setText(bensAtivos + " Bens Ativos");
-        //? ViewValorTotalBensAtivos
+        // ? ViewValorTotalBensAtivos
         Double valorTotalBensAtivos = DB.homeQueryValorTotalBensAtivos();
         NumberFormat fmt = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
         txtValorTotalBensAtivos.setText(fmt.format(valorTotalBensAtivos) + " em Bens Ativos");
-        //? ViewUltimoBemCadastrado
+        // ? ViewUltimoBemCadastrado
         String ultimoBemCadastrado = DB.homeQueryUltimoBemCadastrado();
         txtUltimoBemCadastrado.setText("Último Cadastro: " + ultimoBemCadastrado);
     }

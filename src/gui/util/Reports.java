@@ -1,7 +1,6 @@
 package gui.util;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.Map;
 
 import db.DB;
 import javafx.scene.control.Alert.AlertType;
@@ -15,15 +14,22 @@ import net.sf.jasperreports.view.JasperViewer;
 public class Reports {
     public static void openReport(String path){
         try {
-            Connection conn = DB.getConnection();
-
             JasperReport jr = JasperCompileManager.compileReport(path);
-            JasperPrint jp = JasperFillManager.fillReport(jr, null, conn);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, DB.getConnection());
             JasperViewer.viewReport(jp, false);
+        } catch (JRException e) {
+            Alerts.showAlert("Erro", "Algo deu errado!", e.getMessage(), AlertType.ERROR);
+        }
+    }
 
-            conn.close();
-        } catch (JRException | SQLException e) {
+    public static void openReport(String path, Map<String, Object> params){
+        try {
+            JasperReport jr = JasperCompileManager.compileReport(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, params, DB.getConnection());
+            JasperViewer.viewReport(jp, false);
+        } catch (JRException e) {
             Alerts.showAlert("Erro", "Algo deu errado!", e.getMessage(), AlertType.ERROR);
         }
     }
 }
+

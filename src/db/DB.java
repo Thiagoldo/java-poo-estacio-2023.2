@@ -89,6 +89,7 @@ public class DB {
     }
 
     public static Integer homeQueryBensAtivos() {
+        getConnection();
         String sqlBensAtivos = "SELECT * FROM ViewBensAtivos";
         
         PreparedStatement stmt = null;
@@ -96,7 +97,7 @@ public class DB {
         try {
             stmt = connection.prepareStatement(sqlBensAtivos);
             rs = stmt.executeQuery();
-
+            
             if (rs.next()) {
                 int bensAtivos = rs.getInt(1);
                 return bensAtivos;
@@ -108,11 +109,12 @@ public class DB {
             DB.closeResultset(rs);
             DB.closeStatement(stmt);
         }
-
+        
         return null;
     }
-
+    
     public static String homeQueryUltimoBemCadastrado() {
+        getConnection();
         String sqlUltimoBemCadastrado = "SELECT * FROM ViewUltimoBemCadastrado";
         
         PreparedStatement stmt = null;
@@ -120,7 +122,7 @@ public class DB {
         try {
             stmt = connection.prepareStatement(sqlUltimoBemCadastrado);
             rs = stmt.executeQuery();
-
+            
             if (rs.next()) {
                 String ultimoBemCadastrado = rs.getString(1);
                 return ultimoBemCadastrado;
@@ -135,8 +137,9 @@ public class DB {
 
         return null;
     }
-
+    
     public static Double homeQueryValorTotalBensAtivos() {
+        getConnection();
         String sqlValorTotalBensAtivos = "SELECT * FROM ViewValorTotalBensAtivos";
         
         PreparedStatement stmt = null;
@@ -144,7 +147,7 @@ public class DB {
         try {
             stmt = connection.prepareStatement(sqlValorTotalBensAtivos);
             rs = stmt.executeQuery();
-
+            
             if (rs.next()) {
                 Double valorTotalBensAtivos = rs.getDouble(1);
                 return valorTotalBensAtivos;

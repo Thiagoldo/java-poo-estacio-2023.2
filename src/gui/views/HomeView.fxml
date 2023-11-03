@@ -34,7 +34,7 @@
                <items>
                   <MenuItem fx:id="menuItemReportAssetsActiveds" mnemonicParsing="false" onAction="#onMenuItemReportAssetsActivedsAction" text="Bens Ativos" />
                   <MenuItem fx:id="menuItemReportAssetsByCategories" mnemonicParsing="false" onAction="#onMenuItemReportAssetsByCategoriesAction" text="Bens por Categoria" />
-                  <MenuItem mnemonicParsing="false" text="Bens por Setor" />
+                  <MenuItem fx:id="menuItemReportAssetsBySector" mnemonicParsing="false" onAction="#onMenuItemReportAssetsBySectorAction" text="Bens por Setor" />
                </items>
             </Menu>
          </menus>
