@@ -32,8 +32,8 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Relatórios">
                <items>
-                  <MenuItem fx:id="menuItemReportAssetsActiveds" mnemonicParsing="false" onAction="#onMenuItemReportAssetsActiveds" text="Bens Ativos" />
-                  <MenuItem mnemonicParsing="false" text="Bens por Categoria" />
+                  <MenuItem fx:id="menuItemReportAssetsActiveds" mnemonicParsing="false" onAction="#onMenuItemReportAssetsActivedsAction" text="Bens Ativos" />
+                  <MenuItem fx:id="menuItemReportAssetsByCategories" mnemonicParsing="false" onAction="#onMenuItemReportAssetsByCategoriesAction" text="Bens por Categoria" />
                   <MenuItem mnemonicParsing="false" text="Bens por Setor" />
                </items>
             </Menu>
@@ -67,7 +67,7 @@
             </StackPane>
          </children>
          <VBox.margin>
-            <Insets bottom="100.0" top="80.0" />
+            <Insets bottom="100.0" left="15.0" right="15.0" top="80.0" />
          </VBox.margin>
       </HBox>
       <Text fx:id="textUser" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="RIGHT" />

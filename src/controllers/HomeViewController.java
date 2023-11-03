@@ -30,6 +30,8 @@ public class HomeViewController implements Initializable {
     @FXML
     private MenuItem menuItemReportAssetsActiveds;
     @FXML
+    private MenuItem menuItemReportAssetsByCategories;
+    @FXML
     private Text textUser;
     @FXML
     private Text txtQuantidadeBensAtivos;
@@ -66,8 +68,12 @@ public class HomeViewController implements Initializable {
     }
 
     @FXML
-    public void onMenuItemReportAssetsActiveds() {
+    public void onMenuItemReportAssetsActivedsAction() {
         Reports.openReport("src\\gui\\reports\\Report_Bens_Ativos.jrxml");
+    }
+    @FXML
+    public void onMenuItemReportAssetsByCategoriesAction() {
+        Reports.openReport("src\\gui\\reports\\Report_Bens_Por_Categoria.jrxml");
     }
 
     @Override
