@@ -15,6 +15,9 @@ import java.util.Properties;
 
 import org.apache.ibatis.jdbc.ScriptRunner;
 
+import gui.util.Alerts;
+import javafx.scene.control.Alert.AlertType;
+
 public class DB {
     private static Connection connection = null;
 
@@ -83,5 +86,77 @@ public class DB {
     private static boolean isDataBaseCreated(){
         File file = new File("db\\AssetsControler.db");
         return file.exists();
+    }
+
+    public static Integer homeQueryBensAtivos() {
+        String sqlBensAtivos = "SELECT * FROM ViewBensAtivos";
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement(sqlBensAtivos);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                int bensAtivos = rs.getInt(1);
+                return bensAtivos;
+            }
+        } catch (SQLException e) {
+            Alerts.showAlert("Error", "SQL Error", e.getMessage(), AlertType.ERROR);
+        }
+        finally {
+            DB.closeResultset(rs);
+            DB.closeStatement(stmt);
+        }
+
+        return null;
+    }
+
+    public static String homeQueryUltimoBemCadastrado() {
+        String sqlUltimoBemCadastrado = "SELECT * FROM ViewUltimoBemCadastrado";
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement(sqlUltimoBemCadastrado);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String ultimoBemCadastrado = rs.getString(1);
+                return ultimoBemCadastrado;
+            }
+        } catch (SQLException e) {
+            Alerts.showAlert("Error", "SQL Error", e.getMessage(), AlertType.ERROR);
+        }
+        finally {
+            DB.closeResultset(rs);
+            DB.closeStatement(stmt);
+        }
+
+        return null;
+    }
+
+    public static Double homeQueryValorTotalBensAtivos() {
+        String sqlValorTotalBensAtivos = "SELECT * FROM ViewValorTotalBensAtivos";
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = connection.prepareStatement(sqlValorTotalBensAtivos);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Double valorTotalBensAtivos = rs.getDouble(1);
+                return valorTotalBensAtivos;
+            }
+        } catch (SQLException e) {
+            Alerts.showAlert("Error", "SQL Error", e.getMessage(), AlertType.ERROR);
+        }
+        finally {
+            DB.closeResultset(rs);
+            DB.closeStatement(stmt);
+        }
+
+        return null;
     }
 }

@@ -50,19 +50,19 @@
             <StackPane>
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="140.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="x Bens Ativos" />
+                  <Text fx:id="txtQuantidadeBensAtivos" strokeType="OUTSIDE" strokeWidth="0.0" text="x Bens Ativos" />
                </children>
             </StackPane>
             <StackPane>
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="140.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimo Bem Cadastrado" />
+                  <Text fx:id="txtUltimoBemCadastrado" strokeType="OUTSIDE" strokeWidth="0.0" text="Ultimo Bem Cadastrado" />
                </children>
             </StackPane>
             <StackPane>
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="140.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total dos Bens" />
+                  <Text fx:id="txtValorTotalBensAtivos" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor Total dos Bens" />
                </children>
             </StackPane>
          </children>
