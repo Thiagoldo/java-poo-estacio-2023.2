@@ -11,7 +11,7 @@ import models.entities.User;
 public class App extends Application {
 
     private final String LOGIN_PATH = "../gui/views/LoginView.fxml";
-    private final static String APPLICATION_NAME = "Nome da Aplicação";
+    private final static String APPLICATION_NAME = "Controle Patrimonial";
     private static User AUTHENTICATED_USER;
     private static Scene mainScene;
 

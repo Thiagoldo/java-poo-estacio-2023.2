@@ -8,6 +8,7 @@ import gui.util.Reports;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.text.Text;
 
@@ -27,6 +28,8 @@ public class HomeViewController implements Initializable {
     private MenuItem menuItemReportAssetsActiveds;
     @FXML
     private Text textUser;
+    @FXML
+    private Label txtProgramName;
 
     @FXML
     public void onMenuItemUsuariosAction() {
@@ -61,7 +64,7 @@ public class HomeViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         textUser.setText(App.getAUTHENTICATED_USER().getNome());
-
+        txtProgramName.setText(App.getApplicationName());
         //TODO VIEWS DA HOME
         //? ViewBensAtivos
         //? ViewValorTotalBensAtivos

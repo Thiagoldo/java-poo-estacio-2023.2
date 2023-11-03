@@ -10,7 +10,7 @@
 
 <VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginViewController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DO PROGRAMA">
+      <Text fx:id="txtProgramName" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DO PROGRAMA">
          <font>
             <Font size="27.0" />
          </font>

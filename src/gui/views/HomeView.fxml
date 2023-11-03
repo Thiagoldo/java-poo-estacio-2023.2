@@ -39,7 +39,7 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Label alignment="CENTER" contentDisplay="CENTER" text="NOME DO PROGRAMA">
+      <Label fx:id="txtProgramName" alignment="CENTER" contentDisplay="CENTER" text="NOME DO PROGRAMA">
          <font>
             <Font name="Sans Serif Collection" size="18.0" />
          </font>
