@@ -44,7 +44,9 @@ public class AtivosHelper {
         ativo.setNumeroSerie(controller.getTxtNumeroSerie().getText());
         ativo.setModelo(controller.getTxtModelo().getText());
         ativo.setValor(Double.parseDouble(controller.getTxtValor().getText()));
-        ativo.setImagem(controller.getImgAtivo().getImage().getUrl());
+        if (controller.getImgAtivo().getImage() != null){
+            ativo.setImagem(controller.getImgAtivo().getImage().getUrl());
+        }
         ativo.setObservacao(controller.getTxtObservacao().getText());
 
         return ativo;

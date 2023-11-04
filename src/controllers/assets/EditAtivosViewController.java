@@ -134,7 +134,7 @@ public class EditAtivosViewController implements Initializable {
         ativo = a;
     }
 
-    private Path imagePath;
+    private Path imagePath = null;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
