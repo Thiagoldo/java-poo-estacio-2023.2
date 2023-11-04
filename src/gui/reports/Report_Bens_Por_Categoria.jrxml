@@ -23,8 +23,7 @@
 	c.vida_util as "Vida Útil"
 FROM  Ativos  a
 	INNER JOIN  Categorias  c ON 
-	 a.categoria = c.id 
-GROUP BY c.descricao]]>
+	 a.categoria = c.id]]>
 	</queryString>
 	<field name="ID" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="ID"/>
