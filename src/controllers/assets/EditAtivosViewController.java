@@ -1,9 +1,7 @@
 package controllers.assets;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import gui.util.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -12,6 +10,7 @@ import controllers.MainViewController;
 import controllers.helpers.AtivosHelper;
 import gui.util.Alerts;
 import gui.util.Constraints;
+import gui.util.Files;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -207,7 +206,7 @@ public class EditAtivosViewController implements Initializable {
     }
 
     public void onBtnLimparImagemAction() {
-        if (imgAtivo.getImage() != null){
+        if (imgAtivo.getImage() != null) {
             imgAtivo.setImage(null);
         }
     }
@@ -227,15 +226,8 @@ public class EditAtivosViewController implements Initializable {
     }
 
     private void setUriImageToAsset(Path source) {
-        try {
-            // !Copiar a imagem selecionada para a pasta:
-            // ! ../imgs/assets_images
-            String copiedImage = Files.copyPasteImage(imagePath);
-            // !Settar a url da imagem copiada no objeto Asset
-            ativo.setImagem(copiedImage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String copiedImage = Files.copyPasteImage(imagePath);
+        ativo.setImagem(copiedImage);
     }
 
 }
