@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.App;
 import controllers.MainViewController;
 import gui.util.Alerts;
 import javafx.collections.FXCollections;
@@ -23,6 +24,7 @@ import models.dao.DaoFactory;
 import models.dao.SectorDAO;
 import models.entities.Sector;
 import models.entities.User;
+import models.enums.Perfil;
 
 /**
  * ConsultaUsuarioController
@@ -69,6 +71,15 @@ public class ListSetoresViewController implements Initializable {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         descricaoColumn.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         responsavelColumn.setCellValueFactory(new PropertyValueFactory<>("responsavel"));
+
+        Perfil userPerfil = App.getAUTHENTICATED_USER().getPerfil();
+        if (userPerfil.compareTo(Perfil.MASTER) < 0) {
+            btnExcluir.setDisable(true);
+        }
+        if (userPerfil.compareTo(Perfil.EDICAO) < 0) {
+            btnEditar.setDisable(true);
+            btnNovo.setDisable(true);
+        }
 
         loadData();
 

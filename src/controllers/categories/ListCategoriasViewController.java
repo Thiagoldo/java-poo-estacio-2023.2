@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.App;
 import controllers.MainViewController;
 import gui.util.Alerts;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import models.dao.CategoryDAO;
 import models.dao.DaoFactory;
 import models.entities.Category;
+import models.enums.Perfil;
 
 /**
  * ConsultaUsuarioController
@@ -62,6 +64,15 @@ public class ListCategoriasViewController implements Initializable {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         descricaoColumn.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         vidaUtilColumn.setCellValueFactory(new PropertyValueFactory<>("vidaUtil"));
+
+        Perfil userPerfil = App.getAUTHENTICATED_USER().getPerfil();
+        if (userPerfil.compareTo(Perfil.MASTER) < 0) {
+            btnExcluir.setDisable(true);
+        }
+        if (userPerfil.compareTo(Perfil.EDICAO) < 0) {
+            btnEditar.setDisable(true);
+            btnNovo.setDisable(true);
+        }
 
         loadData();
 

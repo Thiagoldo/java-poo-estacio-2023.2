@@ -36,6 +36,7 @@ import models.dao.DaoFactory;
 import models.entities.Asset;
 import models.entities.AssetSector;
 import models.entities.Sector;
+import models.enums.Perfil;
 import models.enums.Status;
 
 public class BySectorViewController implements Initializable {
@@ -124,6 +125,13 @@ public class BySectorViewController implements Initializable {
                     }
                 });
         dataInicioToColumn.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));
+        
+        Perfil userPerfil = App.getAUTHENTICATED_USER().getPerfil();
+        if (userPerfil.compareTo(Perfil.EDICAO) < 0) {
+            btnAdicionar.setDisable(true);
+            btnRetirar.setDisable(true);
+            btnSalvar.setDisable(true);
+        } 
 
         loadData();
         calcularValorTotal();

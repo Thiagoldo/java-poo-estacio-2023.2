@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.App;
 import controllers.MainViewController;
 import gui.util.Alerts;
 import javafx.collections.FXCollections;
@@ -23,6 +24,7 @@ import models.dao.AssetDAO;
 import models.dao.DaoFactory;
 import models.entities.Asset;
 import models.entities.Category;
+import models.enums.Perfil;
 
 public class ListAtivosViewController implements Initializable {
 
@@ -72,6 +74,15 @@ public class ListAtivosViewController implements Initializable {
         valorColumn.setCellValueFactory(new PropertyValueFactory<>("valor"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+        Perfil userPerfil = App.getAUTHENTICATED_USER().getPerfil();
+        if (userPerfil.compareTo(Perfil.MASTER) < 0) {
+            btnExcluir.setDisable(true);
+        }
+        if (userPerfil.compareTo(Perfil.EDICAO) < 0) {
+            btnEditar.setDisable(true);
+            btnNovo.setDisable(true);
+        } 
+
         loadData();
 
         txtBusca.textProperty().addListener((obs, oldValue, newValue) -> {
@@ -89,11 +100,17 @@ public class ListAtivosViewController implements Initializable {
     public boolean matchString(Asset asset, String searchedText) {
         String regexExpression = "(\\w*)?" + searchedText.toLowerCase() + "(\\w*)?";
 
-        boolean descricaoSearch = asset.getDescricao().toLowerCase().matches(regexExpression);
-        boolean numeroSerieSearch = asset.getNumeroSerie().toLowerCase().matches(regexExpression);
-        boolean notaFiscalSearch = asset.getNotaFiscal().toLowerCase().matches(regexExpression);
-        boolean modeloSearch = asset.getModelo().toLowerCase().matches(regexExpression);
-        boolean categoriaSearch = asset.getCategoria().toString().toLowerCase().matches(regexExpression);
+        String descricaoString = asset.getDescricao() != null ? asset.getDescricao() : "";
+        String numeroSerieString = asset.getNumeroSerie()  != null ? asset.getNumeroSerie() : "";
+        String notaFiscalString = asset.getNotaFiscal()  != null ? asset.getNotaFiscal() : "";
+        String modeloString = asset.getModelo()  != null ? asset.getModelo() : "";
+        String categoriaString = asset.getCategoria().toString()  != null ? asset.getCategoria().toString() : "";
+
+        boolean descricaoSearch = descricaoString.toLowerCase().matches(regexExpression);
+        boolean numeroSerieSearch = numeroSerieString.toLowerCase().matches(regexExpression);
+        boolean notaFiscalSearch = notaFiscalString.toLowerCase().matches(regexExpression);
+        boolean modeloSearch = modeloString.toLowerCase().matches(regexExpression);
+        boolean categoriaSearch = categoriaString.toString().toLowerCase().matches(regexExpression);
 
         return (descricaoSearch || numeroSerieSearch || notaFiscalSearch || modeloSearch || categoriaSearch);
     }

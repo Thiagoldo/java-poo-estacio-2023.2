@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import application.App;
 import controllers.MainViewController;
 import gui.util.Alerts;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import models.dao.DaoFactory;
 import models.dao.UserDAO;
 import models.entities.User;
+import models.enums.Perfil;
 
 /**
  * ConsultaUsuarioController
@@ -29,13 +31,16 @@ import models.entities.User;
 public class ListUsuariosViewController implements Initializable {
 
     @FXML
-    private Button btnBuscar;
+    private Button btnEditar;
 
     @FXML
     private Button btnSair;
 
     @FXML
     private Button btnNovo;
+
+    @FXML
+    private Button btnExcluir;
 
     @FXML
     private TextField txtBusca;
@@ -68,6 +73,15 @@ public class ListUsuariosViewController implements Initializable {
         loginColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
         perfilColumn.setCellValueFactory(new PropertyValueFactory<>("perfil"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        Perfil userPerfil = App.getAUTHENTICATED_USER().getPerfil();
+        if (userPerfil.compareTo(Perfil.MASTER) < 0) {
+            btnExcluir.setDisable(true);
+        }
+        if (userPerfil.compareTo(Perfil.EDICAO) < 0) {
+            btnEditar.setDisable(true);
+            btnNovo.setDisable(true);
+        } 
 
         loadData();
 
