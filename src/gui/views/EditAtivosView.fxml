@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/17.0.9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.assets.EditAtivosViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.assets.EditAtivosViewController">
    <children>
       <AnchorPane prefHeight="362.0" prefWidth="228.0">
          <children>
@@ -33,11 +33,12 @@
             <Text layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observação" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c9c9c9" height="143.0" layoutX="248.0" layoutY="110.0" stroke="BLACK" strokeType="INSIDE" width="143.0" />
             <Text layoutX="246.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imagem" />
-            <Button fx:id="btnAdicionarImagem" layoutX="324.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBtnAdicionarImagemAction" text="Adicionar" />
+            <Button fx:id="btnAdicionarImagem" layoutX="262.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBtnAdicionarImagemAction" text="Adicionar" />
             <ImageView fx:id="imgAtivo" fitHeight="143.0" fitWidth="143.0" layoutX="248.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
             <ComboBox fx:id="cBoxCategorias" layoutY="66.0" prefHeight="25.0" prefWidth="228.0" />
             <Text layoutX="246.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" />
             <ComboBox fx:id="cBoxStatus" layoutX="246.0" layoutY="66.0" prefHeight="25.0" prefWidth="143.0" />
+            <Button fx:id="btnLimparImagem" layoutX="336.0" layoutY="258.0" mnemonicParsing="false" onAction="#onBtnLimparImagemAction" text="Limpar" />
          </children>
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

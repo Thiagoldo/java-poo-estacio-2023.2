@@ -67,6 +67,9 @@ public class EditAtivosViewController implements Initializable {
     private Button btnAdicionarImagem;
 
     @FXML
+    private Button btnLimparImagem;
+
+    @FXML
     private Button btnSalvar;
 
     @FXML
@@ -166,7 +169,7 @@ public class EditAtivosViewController implements Initializable {
     public void onBtnSalvarAction() {
         if (isComplete()) {
             Asset viewAsset = helper.getAtivo();
-            if (imagePath != null){
+            if (imagePath != null) {
                 setUriImageToAsset(imagePath);
             }
             assetDAO = DaoFactory.createAssetDAO();
@@ -200,6 +203,12 @@ public class EditAtivosViewController implements Initializable {
             e.printStackTrace();
             Alerts.showAlert("Erro inesperado", "Erro ao definir a imagem.",
                     "Verifique se o arquivo selecionado é uma imagem.\n" + e.getMessage(), AlertType.ERROR);
+        }
+    }
+
+    public void onBtnLimparImagemAction() {
+        if (imgAtivo.getImage() != null){
+            imgAtivo.setImage(null);
         }
     }
 
